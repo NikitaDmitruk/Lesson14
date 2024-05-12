@@ -1,9 +1,10 @@
 package TaskOne;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class Main {
+public class SecondVariant {
     public static void main(String[] args) {
         int i;
         StringBuilder romeoAndJuliet = new StringBuilder();
@@ -12,8 +13,8 @@ public class Main {
             while ((i = reader.read()) != -1) {
                 romeoAndJuliet.append((char) i);
             }
-        } catch (IOException e) {
-            System.out.println("Такого файла не сущетвует!");
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         words = romeoAndJuliet.toString().split("\\W+");
         String theLongestWord = words[0];
@@ -22,6 +23,10 @@ public class Main {
                 theLongestWord = word;
             }
         }
-        System.out.println(theLongestWord);
+        try (FileWriter writer = new FileWriter("src/TaskOne/the-longest-word.txt", true)) {
+            writer.write(theLongestWord + "\n");
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
