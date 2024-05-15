@@ -49,7 +49,7 @@ public class DocumentSort {
                     reportInvalid.write(text + " - длина не 15 символов!\n");
                     reportInvalid.flush();
                 } else {
-                    reportInvalid.write(text + " - не содержит docnum или conract и длина не 15 символов!\n");
+                    reportInvalid.write(text + " - не содержит docnum или contract и длина не 15 символов!\n");
                     reportInvalid.flush();
                 }
             } catch (IOException exception) {
